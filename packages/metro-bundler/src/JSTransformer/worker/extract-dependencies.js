@@ -36,6 +36,7 @@ function extractDependencies(code: string) {
   function pushDependency(nodeArgs) {
     const arg = nodeArgs[0];
     if (nodeArgs.length != 1 || arg.type !== 'StringLiteral') {
+      return;
       throw new Error('require() must have a single string literal argument');
     }
     dependencyOffsets.push(arg.start);
